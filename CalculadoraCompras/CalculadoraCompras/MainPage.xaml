@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CalculadoraCompras.MainPage"
+             Title="Lista de Compras">
+
+    <StackLayout Orientation="Vertical" VerticalOptions="Start">
+        <Label Text="Valor Total:" HorizontalOptions="Start" FontAttributes="Bold"></Label>
+        <Label x:Name="Total" HorizontalOptions="Start"></Label>
+        <Label Text="Total Comprado:" HorizontalOptions="Start" FontAttributes="Bold"></Label>
+        <Label x:Name="TotalComprado" HorizontalOptions="Start"></Label>
+        <Button Text="Adicionar" Clicked="OnClicked" x:Name="btnAdd"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20" />
+            </Grid.RowDefinitions>
+            <Label Text="  Item" VerticalOptions="StartAndExpand" HorizontalOptions="Start" FontAttributes="Bold"></Label>
+            <Label Text="Valor (R$)" VerticalOptions="StartAndExpand" HorizontalOptions="Center" FontAttributes="Bold"></Label>
+            <Label Text="Comprado" VerticalOptions="StartAndExpand" HorizontalOptions="End" FontAttributes="Bold"></Label>
+        </Grid>
+        <ListView x:Name="listView" Margin="20" ItemSelected="OnItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Label Text="{Binding Descricao}" VerticalOptions="Center" HorizontalOptions="Start"></Label>
+                            <Label Text="{Binding Valor}" VerticalOptions="Center" HorizontalOptions="Center"></Label>
+                            <CheckBox x:Name="Comprado" IsEnabled="False" IsChecked="{Binding Comprado}" HorizontalOptions="End"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>

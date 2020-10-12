@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CalculadoraCompras.PageCompras"
+             Title="Item de Compra">
+    <ContentPage.Content>
+        <StackLayout Padding="10,20,10,10" Orientation="Vertical">
+            <Entry Text="{Binding ID}" IsEnabled="False" IsVisible="False"/>
+            <Label Text="Descrição" FontSize="Small"/>
+            <Entry Text="{Binding Descricao}"/>
+            <Label Text="Valor" FontSize="Small"/>
+            <Entry Text="{Binding Valor}" Keyboard="Numeric"/>
+            <Label Text="Comprado" FontSize="Small"/>
+            <CheckBox x:Name="Comprado" IsChecked="{Binding Comprado}" />
+            <Button Text="Salvar" FontSize="10" WidthRequest="70" Clicked="OnSaveCompra" x:Name="btnSalvar"/>
+            <Button Text="Excluir" FontSize="10" WidthRequest="70" Clicked="OnExcluirCompra" x:Name="btnExcluir"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
